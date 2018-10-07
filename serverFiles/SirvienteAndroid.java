@@ -7,7 +7,9 @@ import java.util.*;
 public class SirvienteAndroid implements Runnable {
 
     private final Socket s;
-    private static final String BASE_DATOS = "debugLog.db";
+    private static final String BASE_DATOS = "android.db";
+    private static final String OFF_PATH = "python /home/pi/Universidad/PrototipoDomotica/gpioScripts/offLights.py";
+    private static final String ON_PATH = "python /home/pi/Universidad/PrototipoDomotica/gpioScripts/onLights.py";
     private Connection connection = null;
     private String fecha;
     private String usuario;
@@ -32,7 +34,7 @@ public class SirvienteAndroid implements Runnable {
             // antes de guardar la informacion en la bbdd ejecutamos el comando
             if (comando.equals("encender")) {
                 try {
-                    String cmd = "python /home/pi/Universidad/SMOV-practica/gpioScripts/onLights.py";
+                    String cmd = ON_PATH;
                     Process pb = Runtime.getRuntime().exec(cmd);
 
                     String line;
@@ -47,7 +49,7 @@ public class SirvienteAndroid implements Runnable {
                 }
             } else {
                 try {
-                    String cmd = "python /home/pi/Universidad/SMOV-practica/gpioScripts/offLights.py";
+                    String cmd = OFF_PATH;
                     Process pb = Runtime.getRuntime().exec(cmd);
 
                     String line;
