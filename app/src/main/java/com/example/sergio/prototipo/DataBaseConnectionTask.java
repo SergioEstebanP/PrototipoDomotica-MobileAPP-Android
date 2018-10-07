@@ -19,7 +19,7 @@ public class DataBaseConnectionTask extends AsyncTask<Void, Void, Boolean>{
     private String ipName;
     private String comando;
     private static int PUERTO = 47001;
-    private String ip="88.4.160.159";
+    private String ip="88.4.21.217";
     private InetAddress serveradd;
     private Socket cliente;
 
