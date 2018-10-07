@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Prototipo</string>
+    <string name="encender">encender</string>
+    <string name="apagar">apagar</string>
+</resources>
