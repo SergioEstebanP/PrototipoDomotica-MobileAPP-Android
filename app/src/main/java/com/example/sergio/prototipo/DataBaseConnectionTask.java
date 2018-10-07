@@ -14,27 +14,28 @@ import android.util.Log;
  */
 
 public class DataBaseConnectionTask extends AsyncTask<Void, Void, Boolean>{
+    private static final String SERVER_ADDRESS = "servidorandroiddo.ddns.net";
+    private static final int PUERTO = 47001;
+
     private Date fecha;
     private String usuario;
     private String ipName;
     private String comando;
-    private static int PUERTO = 47001;
-    private String ip="88.4.21.217";
     private InetAddress serveradd;
     private Socket cliente;
 
-    public DataBaseConnectionTask (String comando) throws IOException {
-        fecha = new Date();
+    public DataBaseConnectionTask (String comando) {
+        cliente = null;
+        this.fecha = new Date();
         this.usuario = "Sergio";
         this.comando = comando;
         this.ipName = "192.168.1.1";
-        serveradd = InetAddress.getByName(ip);
-        cliente = null;
     }
 
     @Override
     protected Boolean doInBackground(Void... params) {
         try {
+            this.serveradd = InetAddress.getByName(SERVER_ADDRESS);
             cliente = new Socket(serveradd, PUERTO);
             PrintStream outred = new PrintStream(cliente.getOutputStream());
             outred.println(fecha.toString());
