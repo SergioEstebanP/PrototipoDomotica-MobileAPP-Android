@@ -1,13 +1,16 @@
-package com.example.sergio.prototipo;
+package com.example.sergio.prototipo.asyncTasks;
 
 import android.os.AsyncTask;
 
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.*;
+import java.util.Arrays;
 import java.util.Date;
 import android.os.Build;
 import android.util.Log;
+
+import com.example.sergio.prototipo.utilities.Utilities;
 
 /**
  * Created by sergio on 23/03/18.
@@ -38,10 +41,10 @@ public class DataBaseConnectionTask extends AsyncTask<Void, Void, Boolean>{
             this.serveradd = InetAddress.getByName(SERVER_ADDRESS);
             cliente = new Socket(serveradd, PUERTO);
             PrintStream outred = new PrintStream(cliente.getOutputStream());
-            outred.println(fecha.toString());
-            outred.println(usuario);
-            outred.println(ipName);
-            outred.println(comando);
+            outred.println(Arrays.toString(Utilities.cifra(this.fecha.toString())));
+            outred.println(Arrays.toString(Utilities.cifra(this.usuario)));
+            outred.println(Arrays.toString(Utilities.cifra(this.ipName)));
+            outred.println(Arrays.toString(Utilities.cifra(this.comando)));
         } catch (Exception e) {
             e.printStackTrace();
         }
