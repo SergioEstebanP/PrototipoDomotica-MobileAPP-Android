@@ -4,6 +4,7 @@ pipeline {
         stage('Get source code') {
             steps {
                 echo 'getting source code ...'
+                cat jenkinsfile.groovy
             }
         }
         stage('Build') {
