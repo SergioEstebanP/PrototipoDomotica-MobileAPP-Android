@@ -1,25 +1,25 @@
 pipeline {
     agent any
+
     stages {
-        stage('Get source code') {
+        stage('Building') {
             steps {
-                echo 'getting source code ...'
-                cat jenkinsfile.groovy
+                echo 'Building ...'
             }
         }
-        stage('Build') {
+        stage('Testing') {
             steps {
-                echo 'building ...'
+                echo 'Testing ...'
             }
         }
-        stage('Test') {
+        stage('Sonar Cube Analysis') {
             steps {
-                echo 'testing ...'
+                echo 'Testing ...'
             }
         }
-        stage('Deploy') {
+        stage('Deploying results') {
             steps {
-                echo 'deploying results ...'
+                echo 'Deploying ...'
             }
         }
     }
